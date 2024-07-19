@@ -1,0 +1,56 @@
+version: 2.1
+orbs:
+  # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
+  node: circleci/node@5.0.2
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+  aws-cli: circleci/aws-cli@3.1.1
+  # different jobs are calles later in the workflows sections
+jobs:
+  BuildAndDeploy:
+    docker:
+      - image: "cimg/node:14.15"
+    steps:
+      - node/install:
+          node-version: '14.15.0'
+      - checkout
+      #TODO: Install dependencies in the the Front-end  & API app
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            echo "NODE --version" 
+            echo $(node --version)
+            echo "NPM --version" 
+            echo $(npm --version)
+            echo "TODO: Install dependencies in the frontend app"
+            npm run frontend:install
+      - run:
+          name: Install API Dependencies
+          command: |
+           echo "TODO: Install dependencies in the backend API"
+           npm run api:install
+      #TODO: Lint+Build the frontend app
+      - run:
+          name: Front-End Lint
+          command: |
+            echo "TODO: Lint the frontend app"
+            npm run frontend:lint
+      - run:
+          name: Front-End Build
+          command: |
+            echo "TODO: Build the frontend app"
+            npm run frontend:build
+      #TODO: Build the backend API
+      - run:
+          name: API Build
+          command: |
+            echo "TODO: Build the backend API"
+            npm run api:build
+
+
+workflows:
+  BuildAndDeploy:
+    jobs:
+      - BuildAndDeploy:
+          filters:
+            branches:
+              only: master
