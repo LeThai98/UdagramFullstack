@@ -40,20 +40,24 @@ export class ApiService {
     return req
             .toPromise()
             .catch((e) => {
-              ApiService.handleError(e);
+              //ApiService.handleError(e);
               throw e;
             });
   }
 
 
   post(endpoint:any, data:any): Promise<any> {
-    const url = `${API_HOST}${endpoint}`;
-    return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
-            .toPromise()
-            .catch((e) => {
-              ApiService.handleError(e);
-              throw e;
-            });
+    try {
+      const url = `${API_HOST}${endpoint}`;
+      return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
+              .toPromise()
+              .catch((e) => {
+                //ApiService.handleError(e);
+                throw e;
+              }); 
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 
   async upload(endpoint: string, file: File, payload: any): Promise<any> {

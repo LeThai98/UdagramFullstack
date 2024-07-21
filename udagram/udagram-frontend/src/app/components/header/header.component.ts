@@ -18,12 +18,17 @@ export class HeaderComponent implements OnInit {
   formLogin!: FormGroup;
   formSingin!: FormGroup;
   submitted = false;
+  error = '';
+  user = localStorage.getItem('user');
 
   constructor(private fb: FormBuilder, private router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {
     this.formLogin = this.fb.group({
-      emailLogin: ['', [Validators.required, Validators.email]],
+      emailLogin: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
       passwordLogin: ['', [Validators.required]],
     });
 
@@ -37,10 +42,14 @@ export class HeaderComponent implements OnInit {
 
   loginMode() {
     this.mode = 'login';
+
+    this.router.navigate(['login']);
   };
 
   signInMode() {  
     this.mode = 'signin';
+
+    this.router.navigate(['register']);
   }
 
   homwMode() {
@@ -67,13 +76,15 @@ export class HeaderComponent implements OnInit {
     return this.formSingin.get('userName');
   }
 
-  async onSubmitLogin() {
+   onSubmitLogin() {
     // Stop if the form is invalid
     if (this.formLogin.invalid) {
       return;
     }
+
     const element = document.getElementById('main') as HTMLElement;
     element.style.display = 'none';
+    this.error = 'failed to login';
 
     this.auth.login(
         this.formLogin.controls['emailLogin'].value,
@@ -86,7 +97,8 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['course']);
     })
     .catch((e:any) => {
-      throw e.statusText;
+      this.error = e.statusText;
+      throw e;
     });
 
 
@@ -103,6 +115,13 @@ export class HeaderComponent implements OnInit {
     element.style.display = 'none';
 
     //this.userInfo.emit(this.form.value);
+  }
+
+  checkUserValid() {
+    console.log('username:',this.user);
+    this.user = localStorage.getItem('user');
+    return (this.user !== null);
+
   }
   
 }

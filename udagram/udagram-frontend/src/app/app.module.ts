@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouteReuseStrategy } from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
@@ -14,19 +13,27 @@ import {CourseComponent} from './components/course/course.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
-
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { SigninComponent } from './components/signin/signin.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CourseComponent
+    CourseComponent,
+    HomeComponent,
+    LoginComponent,
+    SigninComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
@@ -38,7 +45,8 @@ import { provideHttpClient } from '@angular/common/http';
     MatSliderModule,
     MatTabsModule,
     MatButtonToggleModule,
-    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [provideHttpClient()] ,
   exports: [],
