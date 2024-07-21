@@ -1,29 +1,28 @@
-// .login{
-//     width: 50%;
-//  background-color: rgb(157, 177, 111);
-//     height: 100vh;
-//     color: black;
-// }
+.courses{
+    width: 60%;
+    background-color: rgb(216, 211, 211);
+    margin: 10px auto;
+    padding: 10px;
+    list-style: none;
 
-// .example-small-box, .example-large-box {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     margin: 16px;
-//     padding: 16px;
-//     border-radius: 8px;
-//   }
-  
-//   .example-small-box {
-//     height: 100px;
-//     width: 100px;
-//   }
-  
-//   .example-large-box {
-//     height: 300px;
-//     width: 300px;
-//   }
-  
-//   mat-slider {
-//     width: 300px;
-//   }
+    .example-small-box, .example-large-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 8px;
+      }
+      
+      .example-small-box {
+        height: 100px;
+        width: 100px;
+      }
+      
+      .example-large-box {
+        height: 300px;
+        width: 300px;
+      }
+      
+
+}

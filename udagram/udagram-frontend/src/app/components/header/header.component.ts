@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, V
 import { Router } from '@angular/router';
 import {merge} from 'rxjs'
 import { AuthService } from '../../services/auth.service';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-header',
@@ -20,8 +21,9 @@ export class HeaderComponent implements OnInit {
   submitted = false;
   error = '';
   user = localStorage.getItem('user');
+  userAuth :any;
 
-  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService) {}
+  constructor(private fb: FormBuilder, private router: Router, public auth: AuthService) {}
 
   ngOnInit(): void {
     this.formLogin = this.fb.group({
@@ -118,10 +120,18 @@ export class HeaderComponent implements OnInit {
   }
 
   checkUserValid() {
-    console.log('username:',this.user);
     this.user = localStorage.getItem('user');
     return (this.user !== null);
 
   }
-  
+
+  logOut(event: any, select: MatSelect) {
+
+    if (event.value === 'logout') {
+      this.auth.logout(); 
+      select.value = null; // Reset the mat-select
+      this.homwMode();
+      this.router.navigate(['home']);
+    }
+  }
 }

@@ -13,10 +13,9 @@
  
         <div class="user" *ngIf="checkUserValid()">
             <mat-form-field>
-                <mat-label>{{user}}</mat-label>
-                <mat-select>
-                  <mat-option value="one">First option</mat-option>
-                  <mat-option value="two">Second option</mat-option>
+                <mat-label>{{( auth.currentUser$ | async )?.email }}</mat-label>
+                <mat-select #select (selectionChange)="logOut($event, select)" >
+                  <mat-option value="logout">Log out</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>

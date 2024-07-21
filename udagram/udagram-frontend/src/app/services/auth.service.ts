@@ -26,6 +26,7 @@ export class AuthService {
   }
 
   setTokenAndUser(token: string, user: User) {
+    
     localStorage.setItem(JWT_LOCALSTORE_KEY, token);
     localStorage.setItem(USER_LOCALSTORE_KEY, JSON.stringify(user));
     this.api.setAuthToken(token);
@@ -44,7 +45,7 @@ export class AuthService {
   }
 
   logout(): boolean {
-    this.setTokenAndUser('', new User('', ''));
+    window.localStorage.clear();
     return true;
   }
 
