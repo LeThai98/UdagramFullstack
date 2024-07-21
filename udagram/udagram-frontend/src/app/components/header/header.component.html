@@ -1,0 +1,106 @@
+<div class="header">
+    <div class="image" (click)="homwMode()">
+        <img src="assets/image/center.png" width="100px" height="100px" alt="center">
+    </div>
+    <h1>Ho Chi Minh English Center</h1>
+    <div class="user">
+        <!-- <button mat-stroked-button>
+            <i class="fa fa-shopping-cart"></i> 
+                  <span  id="productAmount" #productAmount>Login</span> 
+        </button> -->
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="bold" (change)="loginMode()">LOG IN</mat-button-toggle>
+            <mat-button-toggle value="italic" (change)="signInMode()">SIGN IN</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</div>
+
+<div class="logo" *ngIf="mode === 'home'">
+    <img src="assets/image/Homepage.jpg" alt="Logo">
+</div>
+
+<div class="login" *ngIf="mode === 'login'">
+    <form class="form-group" (ngSubmit)="onSubmitLogin()" [formGroup]="formLogin">
+
+        <!-- Email -->
+        <div>
+            <label>Email </label>
+            <br />
+            <input class="form-control" formControlName="emailLogin" type="email" placeholder="Enter Email" required />
+
+            <div *ngIf="emailLogin?.invalid && ( emailLogin?.touched || emailLogin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="emailLogin?.errors?.['required']">Email is required.</div>
+                <div *ngIf="emailLogin?.errors?.['email']">Email must be a valid email address.</div>
+            </div>
+        </div>
+        <br />
+
+        <!-- Password -->
+       <div>
+            <label>Password</label>
+            <br />
+            <input class="form-control" formControlName="passwordLogin" type="password" placeholder="Enter Your Password"
+                required />
+
+            <div *ngIf="passwordLogin?.invalid && (passwordLogin?.touched ||passwordLogin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="passwordLogin?.errors?.['required']">Password is required.</div>
+            </div>
+        </div>
+        <br />
+
+        <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Log in</button>
+    </form>
+</div>
+
+<div class="signin" *ngIf="mode === 'signin'">
+    <form class="form-group" (ngSubmit)="onSubmitSignin()" [formGroup]="formSingin">
+        
+        <div>
+            <label>User Name </label>
+            <br />
+
+            <input class="form-control" type="text" formControlName="userName" placeholder="Enter User Name" required
+                />
+
+            <div *ngIf="userName?.invalid && (userName?.touched || userName?.dirty)" class="alert alert-danger mt-1" role="alert">
+                <div *ngIf="userName?.errors?.['required']">
+                    User Name is required.
+                </div>
+
+                <div *ngIf="userName?.errors?.['minlength']">
+                    Name must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <br />
+
+        
+        <div>
+            <label>Email </label>
+            <br />
+            <input class="form-control" formControlName="emailSignin" type="email" placeholder="Enter Email" required />
+
+            <div *ngIf="emailSignin?.invalid && ( emailSignin?.touched || emailSignin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="emailSignin?.errors?.['required']">Email is required.</div>
+                <div *ngIf="emailSignin?.errors?.['email']">Email must be a valid email address.</div>
+            </div>
+        </div>
+        <br />
+
+       
+       <div>
+            <label>Password</label>
+            <br />
+            <input class="form-control" formControlName="passwordSignin" type="text" placeholder="Enter Your Password"
+                required />
+
+            <div *ngIf="passwordSignin?.invalid && (passwordSignin?.touched ||passwordSignin?.dirty)" class="alert alert-danger mt-1">
+                <div *ngIf="passwordSignin?.errors?.['required']">Password is required.</div>
+            </div>
+        </div>
+        <br />
+
+        <button type="submit" class="btn btn-primary" [disabled]="formSingin.invalid">Sign in</button>
+    </form>
+</div>

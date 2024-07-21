@@ -1,37 +1,51 @@
-// import { NgModule } from '@angular/core';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { RouteReuseStrategy } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouteReuseStrategy } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { AppComponent } from './app.component';
+import {MatButton} from '@angular/material/button';
+import {MatTooltip} from '@angular/material/tooltip';
+import { BrowserModule } from '@angular/platform-browser';
+import {HeaderComponent} from './components/header/header.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routes.module';
+import {LoginComponent} from './components/login/login.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
-// // import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-// // import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-// // import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-
-// import { AppComponent } from './app.component';
-// // import { AppRoutingModule } from './app-routing.module';
-// // import { MenubarComponent } from './menubar/menubar.component';
-
-// // import { AuthModule } from './auth/auth.module';
-// // import { ApiService } from './api/api.service';
-
-// @NgModule({
-//   declarations: [
-//     // AppComponent,
-//     // MenubarComponent
-//   ],
-//   entryComponents: [],
-//   imports: [
-//   //   BrowserModule,
-//   //   IonicModule.forRoot(),
-//   //   AppRoutingModule,
-//   //   AuthModule
-//   // ],
-//   providers: [
-//     ApiService,
-//     StatusBar,
-//     SplashScreen,
-//     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-//   ],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule {}
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LoginComponent
+  ],
+  imports: [
+    RouterModule,
+    BrowserModule,
+    AppRoutingModule,
+    MatButtonModule, 
+    MatDividerModule, 
+    MatIconModule,
+    MatButton, 
+    MatTooltip,
+    MatSliderModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+  ],
+  providers: [
+    // ApiService,
+    // StatusBar,
+    // SplashScreen,
+    // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  exports: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
