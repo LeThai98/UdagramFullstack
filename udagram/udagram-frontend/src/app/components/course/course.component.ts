@@ -17,8 +17,6 @@ export class CourseComponent implements OnInit {
   registeredCourses: Courses[] = [];
   dataSourceRegister = new MatTableDataSource<Courses>();
 
-
-  constructor() {}
   ngOnInit(): void {
     const productList = window.localStorage.getItem('products');
     this.registeredCourses =  productList ? JSON.parse(productList) : [];

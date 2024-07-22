@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 import { ApiService } from '../api/api.service';
-import { catchError, tap } from 'rxjs/operators';
 
 const JWT_LOCALSTORE_KEY = 'jwt';
 const USER_LOCALSTORE_KEY = 'user';
@@ -19,7 +18,7 @@ export class AuthService {
   initToken() {
     const token = localStorage.getItem(JWT_LOCALSTORE_KEY);
     const storedValue = localStorage.getItem(USER_LOCALSTORE_KEY);
-    const user = storedValue ? <User>JSON.parse(storedValue) : null;
+    const user = storedValue ? (JSON.parse(storedValue) as User) : null;
     if (token && user) {
       this.setTokenAndUser(token, user);
     }
