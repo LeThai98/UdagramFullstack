@@ -28,12 +28,12 @@ jobs:
           command: |
            echo "TODO: Install dependencies in the backend API"
            npm run api:install
-      #TODO: Lint+Build the frontend app
+      #TODO: Test+Build the frontend app
       - run:
-          name: Front-End Lint
+          name: Front-End Testing
           command: |
-            echo "TODO: Lint the frontend app"
-            npm run frontend:lint
+            echo "TODO: Unit test the frontend app"
+            npm run frontend:test
       - run:
           name: Front-End Build
           command: |

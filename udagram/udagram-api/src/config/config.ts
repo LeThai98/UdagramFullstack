@@ -19,3 +19,18 @@ export const config = {
     secret: process.env.JWT_SECRET,
   },
 };
+
+
+// export const config = {
+//   username: "udagram",
+//   password: "rds#udacity",
+//   database: "udagram",
+//   host: "udagram.cwfxz8nf1xrj.us-east-1.rds.amazonaws.com",
+//   aws_region: "us-east-1b",
+//   aws_profile: "",
+//   aws_media_bucket: "",
+//   url: "http://localhost:8080/",
+//   jwt: {
+//     secret: "abc",
+//   },
+// };

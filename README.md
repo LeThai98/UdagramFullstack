@@ -21,7 +21,7 @@ Author: Le Hong Thai
     - Jasmine and Karma
 - Back-end:
     - NodeJS
-    - Typescript
+    - Express
     - JWT token
 - DB:
     - Postgres
@@ -74,16 +74,55 @@ To run the project, we need config some Environment Variables in the created .en
 - Front-end:
     -  S3 Endpoint URL: 
 
-## Pipeline - Circle CI
+## Pipeline - CircleCI
 
 ## Project Setup
+1. Clone source code from GitHub: https://github.com/LeThai98/UdagramFullstack
+2. Install NodeJS v18, NPM v10, Angular CLI v18
+3. Install and create DB on the Postgress Database if want to run locally
+4. Create .env file in the udagram-api source and config environment variable to connect to DB
+5. Config 'apiHost' in the environment.ts and environment.prod.ts file to point to the API
+
+## Install Dependencies, Build, Start, Testing, Deploy
+
+Go into the project directory, open Git Bash:
+### Install Dependencies
+1. Install the dependencies for Front-end: `npm run frontend:install`
+2. Install the dependencies for Back-end: `npm run api:install`
+
+### Start Project
+1. Start Back-end: `npm run api:start`
+2. Start Front-end: `frontend:start`
+
+### Testing
+Only have Unit test using the Jasmine Framework on the Front-end project
+Run Unit-test: `npm run frontend:test`
+
+### Build project
+1. Build API
+- Building API project will create Archive.zip file, therefore the 7-zip application has been installed in locall machine first, and then create the Environment Variable on your local machine to run script regarding to zip.
+- Build API: `npm run api:build`
+- The script will create building file in the `www` folder 
+
+*** Maybe there is the different creating zip file on Mac/Window/Linux. Please research and config `build` script in the package.json file in the api project to run poperly. 
+
+- Window:
+` "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip a -tzip Archive.zip . && cd .."  `
+
+- Mac:
+` "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd .." `
 
 
-## Build, Run, Testing 
+2. Build Front-end
+- Build Front-end project: `npm run frontend:build`
+- The script will create building file in the `dist` folder
 
+### Deploy
+1. Deploy API: `npm run api:deploy`
+2. Deploy Front-end: `npm run frontend:deploy`
 
 ## Infrastructure
 Refer to the Docs folder to get info:
-- AWS Architecture Diagram
-- Pipeline Architecture Diaram
+- Project Diagram
+- Pipeline Diaram
 - Screenshots

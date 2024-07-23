@@ -15,7 +15,8 @@
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
+    "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
+    "aws-eb": "chmod +x bin/eb-aws.sh && bin/eb-aws.sh",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip a -tzip Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
