@@ -17,7 +17,7 @@
     "clean": "rm -rf www/ || true",
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
     "aws-eb": "chmod +x bin/eb-aws.sh && bin/eb-aws.sh",
-    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip a -tzip Archive.zip . && cd ..",
+    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
