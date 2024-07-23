@@ -51,7 +51,7 @@ jobs:
       
       #TODO: Install AWS Elastic Beanstalk CLI
       - run:
-          name: Installing AWS Elastic Beanstalk
+          name: Install EB CLI
           command: |
              echo "TODO: Install AWS Elastic Beanstalk CLI"
             npm run api:aws-eb
