@@ -55,7 +55,7 @@ jobs:
           name: Deploy API
           command: |
             echo "TODO: Deploy the backend API to AWS Elastic Beanstalk"
-            npm run backend:deploy
+            npm run api:deploy
 
       #TODO: Deploying the frontend to AWS S3
       - run:
