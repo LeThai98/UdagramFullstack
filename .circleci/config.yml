@@ -42,12 +42,6 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
-      #TODO: Deploying the frontend to AWS S3
-      - run:
-          name: Front-End Deploy
-          command: |
-            echo "TODO: Deploy the frontend app to AWS S3"
-            npm run frontend:deploy
       
       #TODO: Install AWS Elastic Beanstalk CLI
       - run:
@@ -62,6 +56,13 @@ jobs:
           command: |
             echo "TODO: Deploy the backend API to AWS Elastic Beanstalk"
             npm run backend:deploy
+
+      #TODO: Deploying the frontend to AWS S3
+      - run:
+          name: Front-End Deploy
+          command: |
+            echo "TODO: Deploy the frontend app to AWS S3"
+            npm run frontend:deploy
 
 
 workflows:
