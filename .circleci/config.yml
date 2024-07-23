@@ -13,6 +13,8 @@ jobs:
       - node/install:
           node-version: '18.20.4'
       - checkout
+      - aws-cli/setup
+
       #TODO: Install dependencies in the the Front-end  & API app
       - run:
           name: Install Front-End Dependencies
@@ -40,6 +42,26 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+      #TODO: Deploying the frontend to AWS S3
+      - run:
+          name: Front-End Deploy
+          command: |
+            echo "TODO: Deploy the frontend app to AWS S3"
+            npm run frontend:deploy
+      
+      #TODO: Install AWS Elastic Beanstalk CLI
+      - run:
+          name: Installing AWS Elasticbeanstalk
+          command: |
+             echo "TODO: Install AWS Elastic Beanstalk CLI"
+            npm run api:aws-eb
+      
+      #TODO: Deploy the backend to AWS Elastic Beanstalk
+      - run:
+          name: Deploy API
+          command: |
+            echo "TODO: Deploy the backend API to AWS Elastic Beanstalk"
+            npm run backend:deploy
 
 
 workflows:
