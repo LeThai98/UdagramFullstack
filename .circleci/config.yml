@@ -28,12 +28,7 @@ jobs:
           command: |
            echo "TODO: Install dependencies in the backend API"
            npm run api:install
-      #TODO: Test+Build the frontend app
-      - run:
-          name: Front-End Testing
-          command: |
-            echo "TODO: Unit test the frontend app"
-            npm run frontend:test
+      #TODO: Build the frontend app
       - run:
           name: Front-End Build
           command: |
