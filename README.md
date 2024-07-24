@@ -6,7 +6,10 @@ UDAGRAM is a full-stack project to create a English Center website that help Fso
 - Login/Log out
 - Show all information about courses
 - Register course on the table of courses
-- Show registered courses
+- Show registered courses \
+
+Link to the website: http://udagramfe.s3-website-us-east-1.amazonaws.com/ 
+
 
 Link Github: https://github.com/LeThai98/UdagramFullstack\
 Author: Le Hong Thai
