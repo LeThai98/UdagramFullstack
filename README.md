@@ -50,34 +50,47 @@ Author: Le Hong Thai
 To run the project, we need config some Environment Variables in the created .env file in the udagram-api folder:
 
 ```
-- POSTGRES_HOST       = <Database_IP_Address>
-- POSTGRES_PORT       = <Database_Port>
-- POSTGRES_USERNAME   = <Database_Username>
-- POSTGRES_PASSWORD   = <Database_Password>
-- POSTGRES_DB         = <Database_Name>
-- JWT_SECRET          = <Any_PassPhrase>
-- AWS_REGION          = <us-east-1b>
-- AWS_PROFILE         = <Profile>
-- AWS_BUCKET          = <Bucket_Name>
+- POSTGRES_HOST         = <Database_IP_Address>
+- POSTGRES_PORT         = <Database_Port>
+- POSTGRES_USERNAME     = <Database_Username>
+- POSTGRES_PASSWORD     = <Database_Password>
+- POSTGRES_DB           = <Database_Name>
+- JWT_SECRET            = <Any_PassPhrase>
+- AWS_REGION            = <us-east-1>
+- AWS_PROFILE           = <Profile>
+- AWS_BUCKET            = <Bucket_Name>
 - AWS_ACCESS_KEY_ID     = <AWS_Access_key_id>
 - AWS_SECRET_ACCESS_KEY = <AWS_secret_access_key>
+- AWS_DEFAULT_REGION    = <us-east-1>
 
 ```
 
 ## AWS Cloud Services
 - DB:
-    - RDS Host: 
+    - RDS Host: udagram.cwfxz8nf1xrj.us-east-1.rds.amazonaws.com
     - Port: 5432
     - Database Name: udagram
 
 - Back-end:
     - Platform: NodeJS 18 run on Linux
-    - Elastic Beanstalk URL : 
+    - Elastic Beanstalk URL : http://myudagramapi-env.eba-nmmjmkts.us-east-1.elasticbeanstalk.com/ 
 
 - Front-end:
-    -  S3 Endpoint URL: 
+    -  S3 Endpoint URL: http://udagramfe.s3-website-us-east-1.amazonaws.com/
 
 ## Pipeline - CircleCI
+The sequence jobs: 
+- Setting Environment Variables
+- Install NodeJS
+- Checkout Code
+- Config AWS Access Key
+- Install AWS CLI
+- Install Front-end Dependencies
+- Install API Dependencies
+- Build Angular Front-end project
+- Build API project
+- Deploy API project to AWS Elastic Beanstalk
+- Deploy Angular project to AWS S3 Bucket
 
 ## Project Setup
 1. Clone source code from GitHub: https://github.com/LeThai98/UdagramFullstack
@@ -99,6 +112,7 @@ Go into the project directory, open Git Bash:
 
 ### Testing
 Only have Unit test using the Jasmine Framework on the Front-end project
+
 Run Unit-test: `npm run frontend:test`
 
 ### Build project

@@ -44,13 +44,6 @@ jobs:
             echo "TODO: Build the backend API"
             npm run api:build
       
-      #TODO: Install AWS Elastic Beanstalk CLI
-      #- run:
-      #    name: Install AWS EB CLI
-      #    command: |
-      #      echo "TODO: Install AWS Elastic Beanstalk CLI"
-      #      npm run api:aws-eb
-      
       #TODO: Deploy the backend to AWS Elastic Beanstalk
       - run:
           name: Deploy API
